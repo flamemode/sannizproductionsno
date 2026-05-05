@@ -2,10 +2,10 @@ export type Language = "no" | "en";
 
 export const translations = {
   nav: {
-    home:     { no: "Hjem",      en: "Home" },
-    about:    { no: "Om meg",    en: "About" },
-    projects: { no: "Prosjekter", en: "Projects" },
-    contact:  { no: "Kontakt",   en: "Contact" },
+    home:     { no: "Hjem",          en: "Home" },
+    about:    { no: "Om meg",        en: "About" },
+    projects: { no: "Maler",         en: "Templates" },
+    contact:  { no: "Kontakt",       en: "Contact" },
     cta:      { no: "La oss snakke", en: "Let's Talk" },
   },
 
@@ -18,8 +18,8 @@ export const translations = {
       no: "Sandnes Productions lager raske, moderne nettsider for småbedrifter. Fra landingssider til fulle webapper — la oss gjøre visjonen din til virkelighet.",
       en: "Sandnes Productions builds fast, modern websites for small businesses. From landing pages to full web apps — let's bring your vision to life.",
     },
-    cta_primary:   { no: "Se mine prosjekter", en: "See My Work" },
-    cta_secondary: { no: "Ta kontakt",         en: "Get in Touch" },
+    cta_primary:   { no: "Se mine maler",    en: "See My Templates" },
+    cta_secondary: { no: "Ta kontakt",       en: "Get in Touch" },
     stat1_num:   { no: "10+",  en: "10+" },
     stat1_label: { no: "Prosjekter levert",      en: "Projects Delivered" },
     stat2_num:   { no: "100%", en: "100%" },
@@ -49,48 +49,74 @@ export const translations = {
     skills_label: { no: "Tekniske ferdigheter",   en: "Technical Skills" },
   },
 
-  projects: {
-    section_label: { no: "Portefølje",              en: "Portfolio" },
-    heading:       { no: "Prosjekter jeg er stolt av", en: "Projects I'm proud of" },
+  templates: {
+    section_label: { no: "Maler",                          en: "Templates" },
+    heading:       { no: "Ferdige maler for din bransje",  en: "Ready-made templates for your industry" },
     sub: {
-      no: "En blanding av kundearbeid og personlige prosjekter som viser hva jeg bygger og hvordan jeg tenker.",
-      en: "A mix of client work and personal projects that showcase what I build and how I think.",
+      no: "Velg en mal som passer din bedrift — så skreddersyr jeg den akkurat slik du vil ha den. Farger, tekst, funksjoner og alt annet tilpasses deg.",
+      en: "Pick a template that fits your business — I'll tailor it exactly the way you want. Colours, copy, features and everything else adapted to you.",
     },
-    filter_all:      { no: "Alle",     en: "All" },
-    filter_personal: { no: "Personlig", en: "Personal" },
-    filter_client:   { no: "Kunde",    en: "Client" },
-    badge_client:    { no: "Kundeprosjekt",    en: "Client Project" },
-    badge_personal:  { no: "Personlig prosjekt", en: "Personal Project" },
+    pitch_label:   { no: "Hvordan det fungerer",           en: "How it works" },
+    pitch1_title:  { no: "Velg en mal",                    en: "Pick a template" },
+    pitch1_desc: {
+      no: "Bla gjennom malene og finn en som passer din bransje.",
+      en: "Browse the templates and find one that suits your industry.",
+    },
+    pitch2_title:  { no: "Vi tilpasser",                   en: "We tailor it" },
+    pitch2_desc: {
+      no: "Jeg tilpasser alt — logo, farger, tekst, bilder og funksjoner.",
+      en: "I customise everything — logo, colours, copy, images and features.",
+    },
+    pitch3_title:  { no: "Du går live",                    en: "You go live" },
+    pitch3_desc: {
+      no: "Vi lanserer nettsiden din og du er klar til å ta imot kunder.",
+      en: "We launch your site and you're ready to welcome customers.",
+    },
+    badge_available: { no: "Tilgjengelig", en: "Available" },
+    badge_soon:      { no: "Kommer snart", en: "Coming Soon" },
+    demo_btn:        { no: "Se demo",      en: "View Demo" },
+    tailored_note: {
+      no: "Alle maler skreddersys til din bedrift",
+      en: "All templates are tailored to your business",
+    },
+    cms_title: {
+      no: "Ingen kode? Ingen problem.",
+      en: "No code? No problem.",
+    },
+    cms_desc: {
+      no: "Alle maler leveres med Payload CMS — et brukervennlig administrasjonspanel der du selv kan oppdatere tekst, bilder, priser og innhold når du vil. Ingen utvikler nødvendig.",
+      en: "Every template comes with Payload CMS — a user-friendly admin panel where you can update text, images, prices and content whenever you like. No developer needed.",
+    },
 
-    p1_title: { no: "Baker Street Bakeri",    en: "Baker Street Bakery" },
-    p1_desc: {
-      no: "Full nettstedredesign for et lokalt bakeri — nettmeny, bestillingsskjema og Google Maps-integrasjon. 40% økning i kundeforespørsler etter lansering.",
-      en: "Full website redesign for a local bakery — online menu, order inquiry form, and Google Maps integration. 40% increase in customer inquiries after launch.",
+    t1_title: { no: "Barber & Frisør",          en: "Barber & Hair Salon" },
+    t1_desc: {
+      no: "Stilren nettside med tjenesteoversikt, prisliste, galleri og kontaktskjema. Perfekt for frisører og barbershops.",
+      en: "Sleek website with service overview, price list, gallery and contact form. Perfect for barbers and hair salons.",
     },
-    p2_title: { no: "Nordic Treningsstudio",  en: "Nordic Fitness Studio" },
-    p2_desc: {
-      no: "Medlemslandingsside med timeplaner, trenerprofilene og Stripe-drevet bookingflyt for et treningsstudio.",
-      en: "Membership landing page with class schedule, trainer profiles, and a Stripe-powered booking flow for a fitness studio.",
+    t2_title: { no: "Nettbutikk",               en: "E-commerce Store" },
+    t2_desc: {
+      no: "Komplett nettbutikk med produktkatalog, handlekurv og betaling. Skalerbar og rask.",
+      en: "Full e-commerce store with product catalogue, cart and checkout. Scalable and fast.",
     },
-    p3_title: { no: "DevPortal Dashboard",   en: "DevPortal Dashboard" },
-    p3_desc: {
-      no: "Internt adminpanel for å administrere kundeprosjekter, fakturaer og tidslinjer. Bygget med fokus på hastighet og brukervennlighet.",
-      en: "Internal admin dashboard for managing client projects, invoices, and timelines. Built with a focus on speed and usability.",
+    t3_title: { no: "Restaurant & Kafé",         en: "Restaurant & Café" },
+    t3_desc: {
+      no: "Appetittvekkende design med meny, åpningstider, bordbestilling og Google Maps.",
+      en: "Appetising design with menu, opening hours, table booking and Google Maps.",
     },
-    p4_title: { no: "Blomst Blomsterbutikk", en: "Bloom Flower Shop" },
-    p4_desc: {
-      no: "Netthandelsside for en boutique blomsterbutikk — produktkatalog, handlekurv og kasse med valg av lokalt leveringsområde.",
-      en: "E-commerce site for a boutique flower shop — product catalog, cart, and checkout with local delivery area selection.",
+    t4_title: { no: "Skjønnhetssalong & Spa",   en: "Beauty Salon & Spa" },
+    t4_desc: {
+      no: "Elegant og feminin mal med tjenester, prisliste, timebestilling og galleri.",
+      en: "Elegant and feminine template with services, price list, appointment booking and gallery.",
     },
-    p5_title: { no: "3D Porteføljemal",      en: "3D Portfolio Template" },
-    p5_desc: {
-      no: "Åpen kildekode-porteføljemal med Three.js og Framer Motion. Brukt av 50+ utviklere som utgangspunkt.",
-      en: "Open-source portfolio template using Three.js and Framer Motion. Used by 50+ developers as a starting point.",
+    t5_title: { no: "Treningsstudio & PT",       en: "Gym & Personal Trainer" },
+    t5_desc: {
+      no: "Energisk design med timeplaner, trenerprofiler, medlemskap og påmelding.",
+      en: "Energetic design with class schedules, trainer profiles, memberships and sign-up.",
     },
-    p6_title: { no: "Craft Kaffeselskap",    en: "Craft Coffee Co." },
-    p6_desc: {
-      no: "Merkevaresite for en håndverkskaffe-brenneri — historiefortellingsdesign, bryggeguider og grossistforespørselsskjema.",
-      en: "Brand website for an artisan coffee roaster — storytelling-first design, brew guides, and wholesale inquiry form.",
+    t6_title: { no: "Fotograf",                  en: "Photographer" },
+    t6_desc: {
+      no: "Galleri-fokusert design som lar bildene dine ta hovedrollen. Med kontakt og bookingskjema.",
+      en: "Gallery-focused design that lets your images take centre stage. With contact and booking form.",
     },
   },
 
@@ -129,7 +155,7 @@ export const translations = {
 
     success_heading: { no: "Melding sendt!",        en: "Message sent!" },
     success_sub: {
-      no: "Takk for at du tok kontakt. Jeg svarer innen 24 timer.",
+      no: "Takk for at du tok kontakt. Jeg svarer innen 24 hours.",
       en: "Thanks for reaching out. I'll get back to you within 24 hours.",
     },
     success_again: { no: "Send en ny melding", en: "Send another message" },
