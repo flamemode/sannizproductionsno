@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import { useLanguage } from "@/components/providers";
 import { translations as tr, t } from "@/lib/i18n";
 
@@ -15,8 +16,8 @@ export default function Footer() {
 
   const isSnow       = !mounted || resolvedTheme === "snow";
   const accent       = isSnow ? "#60a5fa" : "#f59e0b";
-  const dividerColor = isSnow ? "rgba(96,165,250,0.1)" : "rgba(245,158,11,0.12)";
-  const footerBg     = isSnow ? "rgba(6,13,31,0.8)"   : "rgba(224,242,254,0.8)";
+  const dividerColor = isSnow ? "rgba(96,165,250,0.1)"  : "rgba(245,158,11,0.12)";
+  const footerBg     = isSnow ? "rgba(6,13,31,0.8)"     : "rgba(224,242,254,0.8)";
 
   const year = new Date().getFullYear();
 
@@ -44,26 +45,19 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center gap-2"
           >
-            <span
-              className="text-xl font-extrabold"
+            <Image
+              src="/SPlogo.png"
+              alt="Sandnes Productions"
+              width={120}
+              height={36}
+              className="object-contain"
               style={{
-                fontFamily: "var(--font-syne)",
-                color: accent,
+                filter: isSnow
+                  ? "brightness(1.1) drop-shadow(0 0 4px rgba(96,165,250,0.2))"
+                  : "brightness(0.95)",
               }}
-            >
-              Sandnes
-            </span>
-            <span
-              className="text-sm font-medium"
-              style={{
-                color: "var(--fg-muted)",
-                fontFamily: "var(--font-jakarta)",
-              }}
-            >
-              Productions
-            </span>
+            />
           </motion.div>
 
           {/* ── Nav links ── */}
@@ -82,19 +76,15 @@ export default function Footer() {
                   color: "var(--fg-muted)",
                   fontFamily: "var(--font-jakarta)",
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = accent)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "var(--fg-muted)")
-                }
+                onMouseEnter={(e) => (e.currentTarget.style.color = accent)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--fg-muted)")}
               >
                 {link.label}
               </a>
             ))}
           </motion.div>
 
-          {/* ── Right: tagline + lang toggle ── */}
+          {/* ── Tagline + lang toggle ── */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -112,14 +102,8 @@ export default function Footer() {
               {t(tr.footer.tagline, lang)}
             </p>
 
-            {/* Weather + language toggles */}
             <div className="flex items-center gap-2">
-              <span
-                className="text-xs"
-                style={{ color: "var(--fg-muted)", fontFamily: "var(--font-jakarta)" }}
-              >
-                {isSnow ? "❄️" : "☀️"}
-              </span>
+              <span className="text-xs">{isSnow ? "❄️" : "☀️"}</span>
               <button
                 onClick={toggleLang}
                 className="text-xs font-semibold transition-colors"
@@ -127,12 +111,8 @@ export default function Footer() {
                   color: "var(--fg-muted)",
                   fontFamily: "var(--font-jakarta)",
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = accent)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "var(--fg-muted)")
-                }
+                onMouseEnter={(e) => (e.currentTarget.style.color = accent)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--fg-muted)")}
               >
                 {lang === "no" ? "🇳🇴 Norsk" : "🇬🇧 English"}
               </button>

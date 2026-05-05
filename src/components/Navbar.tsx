@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import { useLanguage } from "@/components/providers";
 import { translations as tr, t } from "@/lib/i18n";
 
@@ -58,14 +59,9 @@ export default function Navbar() {
     { label: t(tr.nav.contact, lang),  href: "#contact" },
   ];
 
-  // Theme-aware colour tokens
-  const accentColor  = isSnow ? "#60a5fa" : "#f59e0b";
-  const borderColor  = isSnow
-    ? "rgba(96,165,250,0.15)"
-    : "rgba(245,158,11,0.2)";
-  const bgScrolled   = isSnow
-    ? "rgba(6,13,31,0.88)"
-    : "rgba(224,242,254,0.88)";
+  const accentColor   = isSnow ? "#60a5fa" : "#f59e0b";
+  const borderColor   = isSnow ? "rgba(96,165,250,0.15)"  : "rgba(245,158,11,0.2)";
+  const bgScrolled    = isSnow ? "rgba(6,13,31,0.88)"     : "rgba(224,242,254,0.88)";
 
   return (
     <motion.header
@@ -87,22 +83,20 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
         {/* ── Logo ── */}
-        <a href="#home" className="group flex items-center gap-2">
-          <span
-            className="text-2xl font-extrabold tracking-tight transition-colors"
+        <a href="#home" className="flex items-center">
+          <Image
+            src="/SPlogo.png"
+            alt="Sandnes Productions"
+            width={140}
+            height={40}
+            className="object-contain"
             style={{
-              fontFamily: "var(--font-syne)",
-              color: accentColor,
+              filter: isSnow
+                ? "brightness(1.1) drop-shadow(0 0 6px rgba(96,165,250,0.3))"
+                : "brightness(0.95) drop-shadow(0 0 6px rgba(245,158,11,0.2))",
             }}
-          >
-            Sandnes
-          </span>
-          <span
-            className="text-sm font-medium transition-colors"
-            style={{ color: "var(--fg-secondary)" }}
-          >
-            Productions
-          </span>
+            priority
+          />
         </a>
 
         {/* ── Desktop links ── */}
@@ -139,13 +133,12 @@ export default function Navbar() {
                   : "rgba(245,158,11,0.1)",
                 border: `1px solid ${borderColor}`,
               }}
-              title={isSnow ? "Switch to sunny" : "Switch to snow"}
             >
               {isSnow ? "☀️" : "❄️"}
             </button>
           )}
 
-          {/* Language / flag toggle */}
+          {/* Language toggle */}
           <button
             onClick={toggleLang}
             aria-label="Toggle language"
@@ -157,7 +150,6 @@ export default function Navbar() {
               border: `1px solid ${borderColor}`,
               color: "var(--fg-secondary)",
             }}
-            title={lang === "no" ? "Switch to English" : "Bytt til norsk"}
           >
             {lang === "no" ? <NorwayFlag /> : <UKFlag />}
             <span>{lang === "no" ? "NO" : "EN"}</span>
@@ -176,7 +168,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* ── Mobile: controls + hamburger ── */}
+        {/* ── Mobile controls + hamburger ── */}
         <div className="md:hidden flex items-center gap-2">
           {mounted && (
             <button
