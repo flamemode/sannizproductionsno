@@ -22,10 +22,10 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const budgetOptions = [
-  "Under €500",
-  "€500 – €1 500",
-  "€1 500 – €5 000",
-  "€5 000+",
+  "Under 5 000,-",
+  "5 000,- – 15 000,-",
+  "15 000,- – 50 000,-",
+  "50 000,- + ",
   "Vet ikke ennå / Not sure yet",
 ];
 
@@ -217,44 +217,6 @@ export default function Contact() {
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* Social links */}
-            <div
-              className="pt-4"
-              style={{ borderTop: `1px solid ${dividerColor}` }}
-            >
-              <p
-                className="text-xs font-semibold uppercase tracking-widest mb-3"
-                style={{ color: "var(--fg-muted)", fontFamily: "var(--font-jakarta)" }}
-              >
-                {t(tr.contact.find_online, lang)}
-              </p>
-              <div className="flex gap-3">
-                {["GitHub", "LinkedIn"].map((platform) => (
-                  <a
-                    key={platform}
-                    href="#"
-                    className="px-4 py-2 rounded-lg text-xs font-semibold transition-all"
-                    style={{
-                      border: `1px solid ${iconBorder}`,
-                      color: "var(--fg-muted)",
-                      fontFamily: "var(--font-jakarta)",
-                      background: accentSoft,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = accent;
-                      e.currentTarget.style.color = accent;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = iconBorder;
-                      e.currentTarget.style.color = "var(--fg-muted)";
-                    }}
-                  >
-                    {platform}
-                  </a>
-                ))}
-              </div>
             </div>
           </motion.div>
 

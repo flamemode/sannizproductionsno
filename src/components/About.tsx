@@ -137,23 +137,6 @@ export default function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {/* Avatar */}
-            <div className="mb-8">
-              <div
-                className="w-24 h-24 rounded-2xl flex items-center justify-center text-2xl font-extrabold text-white"
-                style={{
-                  fontFamily: "var(--font-syne)",
-                  background: isSnow
-                    ? "linear-gradient(135deg, #60a5fa, #a78bfa)"
-                    : "linear-gradient(135deg, #f59e0b, #ef4444)",
-                  boxShadow: isSnow
-                    ? "0 0 40px rgba(96,165,250,0.35)"
-                    : "0 0 40px rgba(245,158,11,0.35)",
-                }}
-              >
-                SP
-              </div>
-            </div>
 
             <h3
               className="text-2xl font-bold mb-4"
@@ -223,36 +206,7 @@ export default function About() {
                 />
               ))}
             </div>
-
-            {/* Divider card */}
-            <div
-              className="mt-10 p-5 rounded-2xl"
-              style={{
-                border: `1px solid ${dividerColor}`,
-                background: accentSoft,
-              }}
-            >
-              <p
-                className="text-sm leading-relaxed"
-                style={{
-                  color: "var(--fg-secondary)",
-                  fontFamily: "var(--font-jakarta)",
-                  fontStyle: "italic",
-                }}
-              >
-                {isSnow
-                  ? "\"God kode er som en godt bygget bro — sterk, pålitelig og vakrere enn de fleste innser.\""
-                  : "\"Good code is like a well-built bridge — strong, reliable, and more beautiful than most realise.\""}
-              </p>
-              <p
-                className="text-xs mt-3 font-semibold"
-                style={{ color: accent, fontFamily: "var(--font-syne)" }}
-              >
-                — Sandnes Productions
-              </p>
-            </div>
           </motion.div>
-
         </div>
       </div>
     </section>
