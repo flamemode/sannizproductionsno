@@ -84,19 +84,14 @@ export default function Navbar() {
 
         {/* ── Logo ── */}
         <a href="#home" className="flex items-center">
-          <Image
-            src="/SPlogo.png"
-            alt="Sandnes Productions"
-            width={140}
-            height={40}
-            className="object-contain"
-            style={{
-              filter: isSnow
-                ? "brightness(1.1) drop-shadow(0 0 6px rgba(96,165,250,0.3))"
-                : "brightness(0.95) drop-shadow(0 0 6px rgba(245,158,11,0.2))",
-            }}
-            priority
-          />
+        <Image
+  src={isSnow ? "/SPlogoW.png" : "/SPlogo.png"}
+  alt="Sandnes Productions"
+  width={70}
+  height={20}
+  className="object-contain"
+  priority
+/>
         </a>
 
         {/* ── Desktop links ── */}

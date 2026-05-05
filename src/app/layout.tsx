@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Raleway, Plus_Jakarta_Sans } from "next/font/google";
+import "./globals.css";
 import { Providers } from "@/components/providers";
 import ThemeBackground from "@/components/ThemeBackground";
-import "./globals.css";
 
 const raleway = Raleway({
   variable: "--font-syne",
@@ -10,48 +10,43 @@ const raleway = Raleway({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const plusJakarta = Plus_Jakarta_Sans({
+const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Sandnes Productions | Webutvikling for småbedrifter",
+  title: "Sandnes Productions | Nettsider for småbedrifter",
   description:
-    "Sandnes Productions lager moderne, raske nettsider for småbedrifter. Ta kontakt og la oss bygge noe bra sammen.",
-  keywords: [
-    "webutvikling",
-    "frilans",
-    "småbedrifter",
-    "Next.js",
-    "Sandnes Productions",
-    "web development",
-    "Norway",
-  ],
+    "Sandnes Productions lager raske, moderne nettsider for småbedrifter. Ferdig på 2–4 uker, uten kodekunnskap nødvendig.",
+  keywords: ["nettside", "web development", "freelance", "småbedrift", "Sandnes Productions"],
+  icons: {
+    icon: "/SPlogo.png",
+    apple: "/SPlogo.png",
+  },
   openGraph: {
     title: "Sandnes Productions",
-    description: "Webutvikling for småbedrifter | Web Development for Small Businesses",
+    description: "Nettsider for småbedrifter",
     type: "website",
-    locale: "nb_NO",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="no"
       suppressHydrationWarning
-      className={`${raleway.variable} ${plusJakarta.variable} h-full`}
+      className={`${raleway.variable} ${jakarta.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col antialiased relative">
+      <body className="min-h-full flex flex-col relative">
         <Providers>
           <ThemeBackground />
-          {/* All content sits above the background */}
-          <div className="relative z-10 flex flex-col min-h-screen">
+          <div className="relative z-10 flex flex-col min-h-full">
             {children}
           </div>
         </Providers>
